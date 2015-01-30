@@ -14,7 +14,6 @@ public class Client {
     private String passwordCli;
     private String signatureBase64;
 
-
    // Constructor
 
     public Client() {
@@ -128,8 +127,5 @@ public class Client {
     public void setSignatureBase64(String signatureBase64) {
         this.signatureBase64 = signatureBase64;
     }
-
-
-
 
 }

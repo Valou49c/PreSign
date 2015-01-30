@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Created by Valentin on 30/01/2015.
@@ -27,8 +28,10 @@ public class CaptureSign extends Activity{
     private Model mdl = new Model();
     private Client cli;
     private LinearLayout mcontent ;
+    private Date CurDate = new Date();
     protected dessinsignature msignature;
     protected Button bSave;
+    protected Button bSee;
 
     @SuppressLint("SimpleDateFormat")
     @Override
@@ -42,18 +45,20 @@ public class CaptureSign extends Activity{
         cli = mdl.trouveClient(identC);
         mdl.close();
 
-        String lig1 = "Personne : " + cli.getIdCli() + " " + cli.getNomCli() + " " + cli.getPrenomCli();
+        String lig1 = "Personne : " + cli.getIdCli() + " " + cli.getNomCli() + " " + cli.getPrenomCli()+" " + CurDate ;
         ((TextView)findViewById(R.id.tvInfoCli)).setText(lig1);
 
         bSave = (Button) findViewById(R.id.btSave);
         bSave.setEnabled(false);
+        bSee = (Button) findViewById(R.id.btSeeSign);
+        bSee.setEnabled(false);
         findViewById(R.id.btSave).setOnClickListener(envoyerListener);
-        findViewById(R.id.btCancel).setOnClickListener(envoyerListener);
         findViewById(R.id.btClear).setOnClickListener(envoyerListener);
+        findViewById(R.id.btSeeSign).setOnClickListener(envoyerListener);
 
         mcontent = (LinearLayout) findViewById(R.id.Capture);
 
-        msignature = new dessinsignature(this, null, lig1,null);
+        msignature = new dessinsignature(this, null, lig1);
 
         mcontent.addView(msignature, ActionBar.LayoutParams.MATCH_PARENT, ActionBar.LayoutParams.MATCH_PARENT);
     }
@@ -71,13 +76,13 @@ public class CaptureSign extends Activity{
                     mdl.close();
                     finish();
                     break;
-                case R.id.btCancel :
-                    finish();
-                    break;
                 case R.id.btClear :
                     msignature.reset();
                     bSave.setEnabled(false);
+                    bSee.setEnabled(false);
                     break;
+                case R.id.btSeeSign :
+
             }
         }
     };
@@ -89,11 +94,9 @@ public class CaptureSign extends Activity{
         private Path path = new Path();// collection de l'ensemble des points sauvegardés lors des mouvements du doigt
         private Bitmap mBitmap;
         private String lig1;
-        private String lig2;
-        public dessinsignature(Context context, AttributeSet attrs, String lig1, String lig2) {
+        public dessinsignature(Context context, AttributeSet attrs, String lig1) {
             super(context, attrs);
             this.lig1 = lig1;
-            this.lig2 = lig2;
             this.setBackgroundColor(Color.WHITE);
             paint.setAntiAlias(true); // empêche le scintillement gourmand en cpu et mémoire
             paint.setColor(Color.BLACK);
@@ -114,7 +117,8 @@ public class CaptureSign extends Activity{
         public boolean onTouchEvent(MotionEvent event) {
             float eventX = event.getX();
             float eventY = event.getY();
-            if(!bSave.isEnabled()) bSave.setEnabled(true);
+            if(!bSave.isEnabled() ) bSave.setEnabled(true);
+            if(!bSee.isEnabled()) bSee.setEnabled(true);
             switch (event.getAction()) {
                 case MotionEvent.ACTION_DOWN:
                     path.moveTo(eventX, eventY);
