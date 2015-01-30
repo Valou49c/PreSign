@@ -25,11 +25,8 @@ public class SeeSign extends Activity {
     protected Model mdl = new Model();
     protected Client cli;
     protected dessinsignature msignature;
-    private LinearLayout mcontent ;
+    private LinearLayout mcontent;
     private Date CurDate = new Date();
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +34,7 @@ public class SeeSign extends Activity {
         setContentView(R.layout.see_sign_activity);
 
         Bundle b = getIntent().getExtras();
-        String identC = b.getString ("Identifiant");
+        String identC = b.getString("Identifiant");
         mdl.open();
         cli = mdl.trouveClient(identC);
         mdl.close();
@@ -48,19 +45,19 @@ public class SeeSign extends Activity {
 
         msignature.Dessine(cli.getSignatureBase64());
 
-        findViewById(R.id.btReturn).setOnClickListener(envoyerListener);
+//        findViewById(R.id.btReturn).setOnClickListener(envoyerListener);
     }
 
-    private View.OnClickListener envoyerListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            switch (v.getId()){
-                case R.id.btReturn :
-                    finish();
-                    break;
-            }
-        }
-    };
+//    private View.OnClickListener envoyerListener = new View.OnClickListener() {
+//        @Override
+//        public void onClick(View v) {
+//            switch (v.getId()) {
+//                case R.id.btReturn:
+//                    finish();
+//                    break;
+//            }
+//        }
+//    };
 
 
     public class dessinsignature extends View {

@@ -24,6 +24,12 @@ public class Connexion extends Activity {
                     myIntent.putExtra("Identifiant", cli.getIdCli());
                     startActivity(myIntent);
                     break;
+                case R.id.btSeeSign :
+                    if(cli.getSignatureBase64().length() > 0) {
+                        Intent myIntent1 = new Intent(getApplicationContext(), SeeSign.class);
+                        myIntent1.putExtra("Identifiant", cli.getIdCli());
+                        startActivity(myIntent1);
+                    }
 
             }
             //Toast.makeText(MainActivity.this, texte, Toast.LENGTH_SHORT).show();

@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.*;
 import android.os.Bundle;
 import android.util.AttributeSet;
@@ -74,14 +75,19 @@ public class CaptureSign extends Activity{
                     mdl.open();
                     mdl.saveClient(cli);
                     mdl.close();
-                    finish();
+                    //finish();
                     break;
                 case R.id.btClear :
                     msignature.reset();
                     bSave.setEnabled(false);
-                    bSee.setEnabled(false);
+//                    bSee.setEnabled(false);
                     break;
                 case R.id.btSeeSign :
+                    if(cli.getSignatureBase64().length() > 0) {
+                        Intent myIntent1 = new Intent(getApplicationContext(), SeeSign.class);
+                        myIntent1.putExtra("Identifiant", cli.getIdCli());
+                        startActivity(myIntent1);
+                    }
 
             }
         }
