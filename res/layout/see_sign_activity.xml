@@ -4,4 +4,24 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="61dp">
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Retour"
+                android:id="@+id/btReturn"/>
+    </LinearLayout>
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" android:id="@+id/SeeSign" android:background="#ffffffff">
+        <TextView
+                android:layout_width="76dp"
+                android:layout_height="wrap_content"
+                android:text="InfoCli"
+                android:id="@+id/tvInfoCli"/>
+    </LinearLayout>
 </LinearLayout>

@@ -32,8 +32,8 @@ public class Client {
         this.signatureBase64 = signatureBase64;
     }
 
-    public Client(String idCli, String nomCli, String adresse,
-                  String ville, String cp, String tel, String prenomCli, String emailCli, String passwordCli) {
+    public Client(String idCli, String nomCli, String prenomCli, String adresse,
+                  String ville, String cp, String tel,  String emailCli, String passwordCli) {
         this.idCli = idCli;
         this.nomCli = nomCli;
         this.adresse = adresse;
@@ -44,7 +44,6 @@ public class Client {
         this.emailCli = emailCli;
         this.passwordCli = passwordCli;
     }
-
 
     // Getter and Setter
 
