@@ -36,11 +36,11 @@ public class Connexion extends Activity {
                     startActivity(myIntent);
                     break;
                 case R.id.btTest:
-                    if (cli.getSignature_Base64().length() > 0) {
+
                         Intent myIntent1 = new Intent(getApplicationContext(), SeeSign.class);
                         myIntent1.putExtra("Identifiant", cli.getIdCli());
                         startActivity(myIntent1);
-                    }
+                    
                     break;
 
             }

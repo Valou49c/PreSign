@@ -26,6 +26,8 @@ public class SeeSign extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.see_sign_activity);
 
+
+
         Bundle b = getIntent().getExtras();
         String identC = b.getString ("Identifiant");
         mdl.open();

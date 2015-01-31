@@ -73,7 +73,7 @@ public class CaptureSign extends Activity{
                     mdl.open();
                     mdl.saveClient(cli);
                     mdl.close();
-                    finish();
+                    //finish();
                     break;
                 case R.id.btClear :
                     msignature.reset();

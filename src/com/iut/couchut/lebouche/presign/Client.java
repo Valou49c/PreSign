@@ -20,29 +20,30 @@ public class Client {
     }
 
     public void recopieClient(Client unClient) {
+        this.idCli = unClient.idCli;
+        this.nomCli = unClient.nomCli;
+        this.prenomCli = unClient.prenomCli;
+        this.adresse = unClient.adresse;
+        this.cp = unClient.cp;
+        this.ville = unClient.ville;
+        this.tel = unClient.tel;
+        this.emailCli = unClient.emailCli;
+        this.passwordCli = unClient.passwordCli;
+        this.signature_Base64 = unClient.signature_Base64;
+    }
+
+    public Client(String idCli, String nomCli, String prenomCli, String adresse,
+                   String cp, String ville, String tel,  String emailCli, String passwordCli) {
         this.idCli = idCli;
         this.nomCli = nomCli;
         this.prenomCli = prenomCli;
         this.adresse = adresse;
-        this.ville = ville;
         this.cp = cp;
+        this.ville = ville;
         this.tel = tel;
         this.emailCli = emailCli;
         this.passwordCli = passwordCli;
         this.signature_Base64 = signature_Base64;
-    }
-
-    public Client(String idCli, String nomCli, String prenomCli, String adresse,
-                  String ville, String cp, String tel,  String emailCli, String passwordCli) {
-        this.idCli = idCli;
-        this.nomCli = nomCli;
-        this.adresse = adresse;
-        this.ville = ville;
-        this.cp = cp;
-        this.tel = tel;
-        this.prenomCli = prenomCli;
-        this.emailCli = emailCli;
-        this.passwordCli = passwordCli;
     }
 
     // Getter and Setter
