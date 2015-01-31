@@ -9,7 +9,6 @@ import android.graphics.*;
 import android.os.Bundle;
 import android.util.AttributeSet;
 import android.util.Base64;
-import android.view.Menu;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -18,7 +17,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -71,7 +69,7 @@ public class CaptureSign extends Activity{
         public void onClick(View v) {
             switch (v.getId()){
                 case R.id.btSave :
-                    cli.setSignatureBase64(msignature.save());
+                    cli.setSignature_Base64(msignature.save());
                     mdl.open();
                     mdl.saveClient(cli);
                     mdl.close();
@@ -83,15 +81,17 @@ public class CaptureSign extends Activity{
                     bSee.setEnabled(false);
                     break;
                 case R.id.btSeeSign :
-                    if(cli.getSignatureBase64().length() > 0) {
+                    if(cli.getSignature_Base64().length() > 0) {
                         Intent myIntent1 = new Intent(getApplicationContext(), SeeSign.class);
                         myIntent1.putExtra("Identifiant", cli.getIdCli());
                         startActivity(myIntent1);
-                    }
 
+                    }
+                    break;
             }
         }
     };
+
 
     public class dessinsignature extends View {
         // variables nécessaire au dessin

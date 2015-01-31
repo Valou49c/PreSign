@@ -12,7 +12,7 @@ public class Client {
     private String prenomCli;
     private String emailCli;
     private String passwordCli;
-    private String signatureBase64;
+    private String signature_Base64;
 
    // Constructor
 
@@ -29,7 +29,7 @@ public class Client {
         this.tel = tel;
         this.emailCli = emailCli;
         this.passwordCli = passwordCli;
-        this.signatureBase64 = signatureBase64;
+        this.signature_Base64 = signature_Base64;
     }
 
     public Client(String idCli, String nomCli, String prenomCli, String adresse,
@@ -119,12 +119,12 @@ public class Client {
         this.passwordCli = passwordCli;
     }
 
-    public String getSignatureBase64() {
-        return signatureBase64;
+    public String getSignature_Base64() {
+        return signature_Base64;
     }
 
-    public void setSignatureBase64(String signatureBase64) {
-        this.signatureBase64 = signatureBase64;
+    public void setSignature_Base64(String signature_Base64) {
+        this.signature_Base64 = signature_Base64;
     }
 
 }

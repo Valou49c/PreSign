@@ -2,20 +2,13 @@ package com.iut.couchut.lebouche.presign;
 
 import android.app.Activity;
 import android.graphics.*;
-import android.util.AttributeSet;
-import android.view.MotionEvent;
 import android.widget.*;
 import android.os.Bundle;
 import android.app.ActionBar.LayoutParams;
 import android.content.Context;
 import android.util.Base64;
-import android.view.Menu;
 import android.view.View;
 import android.widget.LinearLayout;
-
-import java.io.ByteArrayOutputStream;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 /**
  * Created by Valentin on 30/01/2015.
@@ -25,8 +18,8 @@ public class SeeSign extends Activity {
     protected Model mdl = new Model();
     protected Client cli;
     protected dessinsignature msignature;
-    private LinearLayout mcontent;
-    private Date CurDate = new Date();
+    private LinearLayout mcontent ;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +27,7 @@ public class SeeSign extends Activity {
         setContentView(R.layout.see_sign_activity);
 
         Bundle b = getIntent().getExtras();
-        String identC = b.getString("Identifiant");
+        String identC = b.getString ("Identifiant");
         mdl.open();
         cli = mdl.trouveClient(identC);
         mdl.close();
@@ -43,22 +36,21 @@ public class SeeSign extends Activity {
         msignature = new dessinsignature(this);
         mcontent.addView(msignature, LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
 
-        msignature.Dessine(cli.getSignatureBase64());
+        msignature.Dessine(cli.getSignature_Base64());
 
-//        findViewById(R.id.btReturn).setOnClickListener(envoyerListener);
+        findViewById(R.id.btReturn).setOnClickListener(envoyerListener);
     }
 
-//    private View.OnClickListener envoyerListener = new View.OnClickListener() {
-//        @Override
-//        public void onClick(View v) {
-//            switch (v.getId()) {
-//                case R.id.btReturn:
-//                    finish();
-//                    break;
-//            }
-//        }
-//    };
-
+    private View.OnClickListener envoyerListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()){
+                case R.id.btReturn :
+                    finish();
+                    break;
+            }
+        }
+    };
 
     public class dessinsignature extends View {
         private Canvas canvas;
@@ -80,7 +72,7 @@ public class SeeSign extends Activity {
                 mBitmap = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
                 mBitmap = mBitmap.copy(mBitmap.getConfig(), true);
 
-                //Toast.makeText(AfficheSignature.this, "La signature est bonne mais la fonction dessine ne l'affiche pas =(", Toast.LENGTH_LONG).show();
+                Toast.makeText(SeeSign.this, "La signature est bonne mais la fonction dessine ne l'affiche pas =(", Toast.LENGTH_LONG).show();
             }
             catch (Exception e) {
                 Toast.makeText(SeeSign.this, "Probleme d'affichage de la signature", Toast.LENGTH_SHORT).show();
@@ -89,7 +81,5 @@ public class SeeSign extends Activity {
             this.draw(canvas);
         }
     }
-
-
 
 }
