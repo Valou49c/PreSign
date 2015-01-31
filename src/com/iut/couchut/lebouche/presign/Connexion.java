@@ -24,7 +24,7 @@ public class Connexion extends Activity {
                     myIntent.putExtra("Identifiant", cli.getIdCli());
                     startActivity(myIntent);
                     break;
-                case R.id.btSeeSign :
+                case R.id.btTest :
                     if(cli.getSignatureBase64().length() > 0) {
                         Intent myIntent1 = new Intent(getApplicationContext(), SeeSign.class);
                         myIntent1.putExtra("Identifiant", cli.getIdCli());
@@ -36,11 +36,14 @@ public class Connexion extends Activity {
         }
     };
 
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
 
         findViewById(R.id.btConnexion).setOnClickListener(envoyerListener);
+        findViewById(R.id.btTest).setOnClickListener(envoyerListener);
+
 
     }
 }

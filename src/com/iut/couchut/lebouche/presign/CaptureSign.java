@@ -75,12 +75,12 @@ public class CaptureSign extends Activity{
                     mdl.open();
                     mdl.saveClient(cli);
                     mdl.close();
-                    //finish();
+                    finish();
                     break;
                 case R.id.btClear :
                     msignature.reset();
                     bSave.setEnabled(false);
-//                    bSee.setEnabled(false);
+                    bSee.setEnabled(false);
                     break;
                 case R.id.btSeeSign :
                     if(cli.getSignatureBase64().length() > 0) {
