@@ -74,7 +74,7 @@ public class SeeSign extends Activity {
                 mBitmap = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
                 mBitmap = mBitmap.copy(mBitmap.getConfig(), true);
 
-                Toast.makeText(SeeSign.this, "La signature est bonne mais la fonction dessine ne l'affiche pas =(", Toast.LENGTH_LONG).show();
+                //Toast.makeText(SeeSign.this, "La signature est bonne mais la fonction dessine ne l'affiche pas =(", Toast.LENGTH_LONG).show();
             }
             catch (Exception e) {
                 Toast.makeText(SeeSign.this, "Probleme d'affichage de la signature", Toast.LENGTH_SHORT).show();

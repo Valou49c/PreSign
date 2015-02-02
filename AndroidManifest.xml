@@ -34,5 +34,7 @@
                   android:label="Signature"></activity>
         <activity android:name=".SeeSign"
                   android:label="Signature Envoyée"></activity>
+        <activity android:name=".SignIt"
+                  android:label="Inscription"></activity>
     </application>
 </manifest>

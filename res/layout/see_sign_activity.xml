@@ -18,10 +18,5 @@
             android:orientation="vertical"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent" android:id="@+id/SeeSign" android:background="#ffffffff">
-        <TextView
-                android:layout_width="76dp"
-                android:layout_height="wrap_content"
-                android:text="InfoCli"
-                android:id="@+id/tvInfoCli"/>
     </LinearLayout>
 </LinearLayout>

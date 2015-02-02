@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="fill_parent"
+              xmlns:tools="http://schemas.android.com/tools" android:layout_width="fill_parent"
               android:layout_height="fill_parent"
               android:gravity="center_horizontal">
     <LinearLayout
-            android:orientation="vertical"
             android:layout_width="fill_parent"
-            android:layout_height="252dp">
+            android:layout_height="278dp" android:orientation="vertical" android:weightSum="1"
+            tools:ignore="InvalidId">
         <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -18,25 +18,29 @@
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
                 android:ems="10"
-                android:id="@+id/etMail" android:text="Adresse e-mail" android:layout_marginBottom="10dp"
-                android:layout_gravity="center"/>
+                android:id="@+id/etMail" android:layout_marginBottom="10dp"
+                android:layout_gravity="center"
+                android:editable="true"
+                android:contentDescription="Adresse e-mail" android:hint="Adresse e-mail"/>
         <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword"
                 android:ems="10"
-                android:id="@+id/etPassword" android:text="Mot de passe" android:layout_marginBottom="10dp"
-                android:layout_gravity="center"/>
+                android:id="@+id/etPassword" android:layout_marginBottom="10dp"
+                android:layout_gravity="center" android:password="true"
+                android:hint="Mot de passe"/>
         <Button
-                android:layout_width="wrap_content"
+                android:layout_width="102dp"
                 android:layout_height="wrap_content"
                 android:text="Connexion"
-                android:id="@+id/btConnexion" android:layout_gravity="center"/>
+                android:id="@+id/btConnexion" android:layout_gravity="center"
+                android:background="@android:color/holo_blue_light"/>
         <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="test"
-                android:id="@+id/btTest"/>
+                android:text="Inscription"
+                android:id="@+id/btInscription" android:layout_gravity="center_horizontal"/>
     </LinearLayout>
+
 </LinearLayout>
 

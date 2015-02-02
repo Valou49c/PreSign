@@ -33,13 +33,28 @@ public class Client {
     }
 
     public Client(String idCli, String nomCli, String prenomCli, String adresse,
-                   String cp, String ville, String tel,  String emailCli, String passwordCli) {
+                   String cp, String ville, String tel,  String emailCli, String passwordCli, String signature_Base64) {
         this.idCli = idCli;
         this.nomCli = nomCli;
         this.prenomCli = prenomCli;
         this.adresse = adresse;
         this.cp = cp;
         this.ville = ville;
+        this.tel = tel;
+        this.emailCli = emailCli;
+        this.passwordCli = passwordCli;
+        this.signature_Base64 = signature_Base64;
+    }
+
+
+    public Client(String idCli, String nomCli, String prenomCli, String tel,  String emailCli,
+                  String passwordCli, String signature_Base64) {
+        this.idCli = idCli;
+        this.nomCli = nomCli;
+        this.prenomCli = prenomCli;
+//        this.adresse = adresse;
+//        this.cp = cp;
+//        this.ville = ville;
         this.tel = tel;
         this.emailCli = emailCli;
         this.passwordCli = passwordCli;

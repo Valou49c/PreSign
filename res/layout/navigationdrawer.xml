@@ -1,0 +1,53 @@
+<android.support.v4.widget.DrawerLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" android:background="@android:color/background_dark">
+            <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Inscription"
+                      android:id="@+id/tvInscription" android:textSize="45dp" android:textAlignment="center"
+                      android:gravity="center_horizontal" android:layout_marginBottom="25dp"/>
+            <EditText android:layout_width="wrap_content" android:layout_height="wrap_content"
+                      android:inputType="textEmailAddress" android:ems="10" android:id="@+id/etName"
+                      android:layout_marginBottom="10dp" android:editable="false"
+                      android:hint="Nom"
+                      android:layout_gravity="center" android:gravity="center"/>
+            <EditText android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:inputType="textEmailAddress" android:ems="10" android:id="@+id/etlastname"
+                      android:layout_marginBottom="10dp" android:editable="false"
+                      android:hint="Prénom"
+                      android:layout_gravity="center" android:gravity="center"/>
+            <EditText android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:inputType="textEmailAddress" android:ems="10" android:id="@+id/etMail"
+                      android:layout_marginBottom="10dp" android:editable="false"
+                      android:contentDescription="Adresse e-mail" android:hint="Adresse e-mail"
+                      android:layout_gravity="center_horizontal" android:gravity="center"/>
+            <EditText android:layout_width="wrap_content" android:layout_height="wrap_content" android:ems="10"
+                      android:id="@+id/tvTel" android:layout_marginBottom="10dp"
+                      android:password="false" android:hint="téléphone" android:layout_gravity="center"
+                      android:phoneNumber="true" android:gravity="center"/>
+            <EditText android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:inputType="textEmailAddress" android:ems="10" android:id="@+id/etPassword"
+                      android:layout_marginBottom="10dp" android:editable="false"
+                      android:contentDescription="Adresse e-mail" android:hint="Password"
+                      android:layout_gravity="center_horizontal" android:gravity="center" android:password="true"/>
+            <EditText android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:inputType="textEmailAddress" android:ems="10" android:id="@+id/etSign"
+                      android:layout_marginBottom="10dp" android:editable="false"
+                      android:contentDescription="Adresse e-mail" android:hint="Signature"
+                      android:layout_gravity="center_horizontal" android:gravity="center"
+                      android:textColor="#ff000000"/>
+            <Button
+                    android:layout_width="102dp"
+                    android:layout_height="wrap_content"
+                    android:text="Inscription"
+                    android:id="@+id/btInscriptionUser" android:layout_gravity="center"
+                    android:background="@android:color/holo_blue_light"/>
+            <Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Annuler"
+                    android:id="@+id/btAnnuler" android:layout_gravity="center"/>
+        </LinearLayout>
+
+</android.support.v4.widget.DrawerLayout>

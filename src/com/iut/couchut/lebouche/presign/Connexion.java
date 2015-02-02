@@ -21,29 +21,26 @@ public class Connexion extends Activity {
         setContentView(R.layout.main_activity);
 
         findViewById(R.id.btConnexion).setOnClickListener(envoyerListener);
-        findViewById(R.id.btTest).setOnClickListener(envoyerListener);
+        findViewById(R.id.btInscription).setOnClickListener(envoyerListener);
 
 
     }
 
     private View.OnClickListener envoyerListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            switch (v.getId()) {
-                case R.id.btConnexion:
-                    Intent myIntent = new Intent(getApplicationContext(), CaptureSign.class);
-                    myIntent.putExtra("Identifiant", cli.getIdCli());
-                    startActivity(myIntent);
-                    break;
-                case R.id.btTest:
-
-                        Intent myIntent1 = new Intent(getApplicationContext(), SeeSign.class);
-                        myIntent1.putExtra("Identifiant", cli.getIdCli());
-                        startActivity(myIntent1);
-                    
-                    break;
-
-            }
+                @Override
+                public void onClick(View v) {
+                    switch (v.getId()) {
+                        case R.id.btConnexion:
+                            Intent myIntent = new Intent(getApplicationContext(), CaptureSign.class);
+                            myIntent.putExtra("Identifiant", cli.getIdCli());
+                            startActivity(myIntent);
+                            break;
+                        case R.id.btInscription:
+                            Intent myIntent1 = new Intent(getApplicationContext(), SignIt.class);
+                            myIntent1.putExtra("Identifiant", cli.getIdCli());
+                            startActivity(myIntent1);
+                            break;
+                    }
             //Toast.makeText(MainActivity.this, texte, Toast.LENGTH_SHORT).show();
         }
     };
