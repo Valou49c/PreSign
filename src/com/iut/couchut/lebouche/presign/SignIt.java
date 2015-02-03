@@ -19,44 +19,36 @@ import java.util.Random;
 public class SignIt extends Activity {
 
     private PreSignDataSource datasource;
-    Client user = null;
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.navigationdrawer);
+        setContentView(R.layout.signit_activity);
 
         datasource = new PreSignDataSource(this);
         try {
             datasource.open();
             Toast.makeText(getApplicationContext(), "Bdd Open", Toast.LENGTH_LONG).show();
-            int nextInt = new Random().nextInt(3);
-                    // save the new user to the database
-                    user = datasource.createUser(String.valueOf(nextInt),"couchut", "valentin", "Le clos ste anne", "49320", "Brissac",
-                            "0609466095", "Valou49c@gmail.com", "test");
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-        findViewById(R.id.btInscriptionUser).setOnClickListener(envoyerListener);
     }
+    // Sera appelée par l'attribut onClick
+    // des boutons déclarés dans main.xml
+    public void onClick(View view) {
+        @SuppressWarnings("unchecked")
 
-
-    private View.OnClickListener envoyerListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            Client user = null;
-            switch (v.getId()) {
-                case R.id.btInscriptionUser:
-
-                    Toast.makeText(getApplicationContext(), "Clik sur bt annuler", Toast.LENGTH_SHORT).show();
-//                    int nextInt = new Random().nextInt(3);
-//                    // save the new user to the database
-//                    user = datasource.createUser("couchut", "valentin", "Le clos ste anne", "49320", "Brissac",
-//                            "0609466095", "Valou49c@gmail.com", "test", "");
-//                    Toast.makeText(getApplicationContext(), "Ajout user OK", Toast.LENGTH_LONG).show();
-//                    break;
-            }
-
+        Client client = null;
+        switch (view.getId()) {
+            case R.id.add:
+//                String[] users = new String[] { "couchut", "valentin", "Le clos ste anne", "49320", "Brissac",
+//                        "0609466095", "Valou49c@gmail.com", "test", "" };
+                int nextInt = new Random().nextInt(3);
+                // enregistrer le nouveau commentaire dans la base de données
+                client = datasource.createUser("couchut", "valentin", "Le clos ste anne", "49320", "Brissac",
+                          "0609466095", "Valou49c@gmail.com", "test", "ghfy");
+            Toast.makeText(getApplicationContext(), "Ajout user OK", Toast.LENGTH_LONG).show();
+                break;
         }
-    };
+    }
 }

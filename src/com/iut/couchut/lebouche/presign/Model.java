@@ -104,13 +104,13 @@ public class Model {
 
 //    @SuppressLint("SimpleDateFormat")
 //    public void chargeDb() {
-//        ArrayList<Client> lesClients = listClient();
-//        Client vcli = new Client();
+//        ArrayList<User> lesClients = listClient();
+//        User vcli = new User();
 //
 //        Boolean test = true;
 //        if (lesClients.isEmpty()) {
 //            try {
-//                vcli = new Client("1", "Couchut", "Valentin", "Le clos ste Anne", "Brissac-Quince", "49320", "0609466095",
+//                vcli = new User("1", "Couchut", "Valentin", "Le clos ste Anne", "Brissac-Quince", "49320", "0609466095",
 //                        "Valou49c@gmail.com", "password");
 //            }
 //            catch (Exception e) {
@@ -120,7 +120,7 @@ public class Model {
 //            db.store(vcli);
 //
 //            try {
-//                vcli = new Client("2", "Lebouche", "Fabrice", "Parc des princes", "Paris", "75003", "060659863",
+//                vcli = new User("2", "Lebouche", "Fabrice", "Parc des princes", "Paris", "75003", "060659863",
 //                        "fabrice.lebouche.sio@gmail.com", "password");
 //            }
 //            catch (Exception e) {

@@ -1,20 +1,22 @@
 package com.iut.couchut.lebouche.presign;
 
+import org.json.JSONObject;
+
 /**
  * Created by Valentin on 30/01/2015.
  */
 public class Client {
 
-    // Properties
-    private String idCli;
-    private String nomCli;
-    private String adresse, ville, cp, tel;
-    private String prenomCli;
-    private String emailCli;
-    private String passwordCli;
-    private String signature_Base64;
+// Properties
+private String idCli;
+private String nomCli;
+private String adresse, ville, cp, tel;
+private String prenomCli;
+private String emailCli;
+private String passwordCli;
+private String signature_Base64;
 
-   // Constructor
+    // Constructor
 
     public Client() {
     }
@@ -33,7 +35,7 @@ public class Client {
     }
 
     public Client(String idCli, String nomCli, String prenomCli, String adresse,
-                   String cp, String ville, String tel,  String emailCli, String passwordCli, String signature_Base64) {
+                  String cp, String ville, String tel,  String emailCli, String passwordCli, String signature_Base64) {
         this.idCli = idCli;
         this.nomCli = nomCli;
         this.prenomCli = prenomCli;

@@ -36,5 +36,7 @@
                   android:label="Signature Envoyée"></activity>
         <activity android:name=".SignIt"
                   android:label="Inscription"></activity>
+        <activity android:name="test.connect.bdd.Accueil"></activity>
+        <activity android:name="test.connect.bdd.UserBoard"></activity>
     </application>
 </manifest>

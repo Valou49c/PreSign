@@ -11,8 +11,6 @@ import android.util.Log;
  */
 public final class MySQLiteHelper extends SQLiteOpenHelper {
 
-
-
     public static final String TABLE_USERS = "users";
     public static final String COLUMN_NAME_USER_ID = "userid";
     public static final String COLUMN_NAME_NAME = "name";
