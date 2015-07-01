@@ -34,6 +34,10 @@ private String signature_Base64;
         this.signature_Base64 = unClient.signature_Base64;
     }
 
+    public Client(String nomCli) {
+        this.nomCli = nomCli;
+    }
+
     public Client(String idCli, String nomCli, String prenomCli, String adresse,
                   String cp, String ville, String tel,  String emailCli, String passwordCli, String signature_Base64) {
         this.idCli = idCli;

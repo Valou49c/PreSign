@@ -56,6 +56,9 @@ public class Model {
         return lesClients;
     }
 
+
+
+
     public Controleur trouveControleur(String id){
         Controleur vretour = new Controleur();
         vretour.setIdentifiant(id);
@@ -102,35 +105,45 @@ public class Model {
 
 
 
-//    @SuppressLint("SimpleDateFormat")
-//    public void chargeDb() {
-//        ArrayList<User> lesClients = listClient();
-//        User vcli = new User();
-//
-//        Boolean test = true;
-//        if (lesClients.isEmpty()) {
-//            try {
-//                vcli = new User("1", "Couchut", "Valentin", "Le clos ste Anne", "Brissac-Quince", "49320", "0609466095",
-//                        "Valou49c@gmail.com", "password");
-//            }
-//            catch (Exception e) {
-//
-//               // e.printStackTrace();
-//            }
-//            db.store(vcli);
-//
-//            try {
-//                vcli = new User("2", "Lebouche", "Fabrice", "Parc des princes", "Paris", "75003", "060659863",
-//                        "fabrice.lebouche.sio@gmail.com", "password");
-//            }
-//            catch (Exception e) {
-//
-//                e.printStackTrace();
-//            }
-//            db.store(vcli);
-//
-//        }
-//    }
+    @SuppressLint("SimpleDateFormat")
+    public void chargeDb() {
+        ArrayList<Client> lesClients = listClient();
+        Client vcli = new Client();
+
+        Boolean test = true;
+        if (lesClients.isEmpty()) {
+            try {
+                vcli = new Client("1", "Couchut", "Valentin", "Le clos ste Anne", "Brissac-Quince", "49320", "0609466095",
+                        "Valou49c@gmail.com", "password","");
+            }
+            catch (Exception e) {
+
+               // e.printStackTrace();
+            }
+            db.store(vcli);
+
+            try {
+                vcli = new Client("2", "Lebouche", "Fabrice", "Parc des princes", "Paris", "75003", "060659863",
+                        "fabrice.lebouche.sio@gmail.com", "password","");
+            }
+            catch (Exception e) {
+
+                e.printStackTrace();
+            }
+            db.store(vcli);
+
+            try {
+                vcli = new Client("3", "Mamadou", "Sakho", "test", "Paris", "75003", "060659863",
+                        "fabrice.lebouche.sio@gmail.com", "password","");
+            }
+            catch (Exception e) {
+
+                e.printStackTrace();
+            }
+            db.store(vcli);
+
+        }
+    }
 
 
 
@@ -141,7 +154,6 @@ public class Model {
     public Model(){
         mkdir();
         open();
-        //chargeDb();
         db.close();
     }
 
@@ -158,6 +170,9 @@ public class Model {
             db.store(c);
         }
     }
+
+
+
 
 
 }

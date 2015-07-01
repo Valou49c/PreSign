@@ -19,10 +19,12 @@ import java.sql.SQLException;
 
 public class Connexion extends Activity {
 
-    public String addr = "http://www.fabrice-lebouche.fr/accueil.html";
-    Model mdl = new Model();
+
+//    Model mdl = new Model();
     private AsyncTask<String, String, Boolean> mTrheadConnexion = null;
     private Button btConnexion;
+
+    public String addr = "";
     private String id;
     private String mdp;
     Client cli = new Client();
@@ -31,6 +33,7 @@ public class Connexion extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
 
+
         //addr = addr + "import.php";
 
         findViewById(R.id.btConnexion).setOnClickListener(envoyerListener);
@@ -38,43 +41,51 @@ public class Connexion extends Activity {
 
     }
 
+
+
+
+
     private View.OnClickListener envoyerListener = new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    mdl.open();
+//                    mdl.open();
                     switch (v.getId()) {
-                        case R.id.btInscription:
+                        case R.id.btConnexion:
                             id = ((TextView)findViewById(R.id.etMail)).getText().toString();
                             mdp = ((TextView)findViewById(R.id.etPassword)).getText().toString();
 //                            Intent myIntent = new Intent(getApplicationContext(), CaptureSign.class);
 //                            myIntent.putExtra("Identifiant", cli.getIdCli());
 ////                            startActivity(myIntent);
 
-                            if(id.length() > 0 && mdp.length() > 0){
-                                if(mdl.listControleur().isEmpty()){
-                                    String[] mesparams = { id, mdp, addr };
-                                    mTrheadConnexion = new ConnexionServer(Connexion.this).execute(mesparams);
-                                }
-                                else {
-                                    String txt = "";
-                                    if(mdl.listControleur().get(0).getIdentifiant() != id && mdl.listControleur().get(0).getMotPasse() == mdp){
-                                        txt = "Modification de l'identifiant";
-                                    }
-                                    else{
-                                        txt = "Modification du mot du passe";
-                                    }
-
-                                    Toast.makeText(Connexion.this, txt, Toast.LENGTH_LONG).show();
-                                }
-                            }
+//                            if(id.length() > 0 && mdp.length() > 0){
+//                                if(mdl.listControleur().isEmpty()){
+//                                   String[] mesparams = { addr }; //id, mdp,
+//
+//                                   mTrheadConnexion = new ConnexionServer(Connexion.this).execute(mesparams);
+//
+//
+//                                }
+//                                else {
+//                                    String txt = "";
+//                                    if(mdl.listControleur().get(0).getIdentifiant() != id && mdl.listControleur().get(0).getMotPasse() == mdp){
+//                                        txt = "Modification de l'identifiant";
+//                                    }
+//                                    else{
+//                                        txt = "Modification du mot du passe";
+//                                    }
+//
+//                                    Toast.makeText(Connexion.this, txt, Toast.LENGTH_LONG).show();
+//                                }
+//                            }
                             break;
-                        case R.id.btConnexion:
-                            Intent myIntent1 = new Intent(getApplicationContext(), SignIt.class);
+                        case R.id.btInscription:
+                            Intent myIntent1 = new Intent(getApplicationContext(), AfficheListeClient.class);
                             myIntent1.putExtra("Identifiant", cli.getIdCli());
                             startActivity(myIntent1);
+
                             break;
                     }
-                    mdl.close();
+//                    mdl.close();
             //Toast.makeText(MainActivity.this, texte, Toast.LENGTH_SHORT).show();
         }
     };
@@ -87,18 +98,18 @@ public class Connexion extends Activity {
         adb.show();
     }
 
-    public void reponseserveur(StringBuilder sb)
-    {
-        if(Integer.parseInt(sb.toString()) > 0) {
-            mdl.open();
-            mdl.saveControleur(new Controleur(id, mdp));
-            mdl.close();
-
-            setResult(1);
-            finish();
-        }
-        else Toast.makeText(Connexion.this, "Mauvaise combinaison Login / Mdp" , Toast.LENGTH_LONG).show();
-    }
+//    public void reponseserveur(StringBuilder sb)
+//    {
+//        if(Integer.parseInt(sb.toString()) > 0) {
+//            mdl.open();
+//            mdl.saveControleur(new Controleur(id, mdp));
+//            mdl.close();
+//
+//            setResult(1);
+//            finish();
+//        }
+//        else Toast.makeText(Connexion.this, "Mauvaise combinaison Login / Mdp" , Toast.LENGTH_LONG).show();
+//    }
 
 	/*public boolean isNetworkAvailable() {
 	    ConnectivityManager cm = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);

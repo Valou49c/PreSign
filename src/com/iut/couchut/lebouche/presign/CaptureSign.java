@@ -160,8 +160,10 @@ public class CaptureSign extends Activity{
                 mBitmap.compress(Bitmap.CompressFormat.JPEG, 100, ByteStream);
                 byte[] b = ByteStream.toByteArray();
                 vretour = Base64.encodeToString(b, Base64.DEFAULT);
+
+
             } catch (Exception e) {
-                Toast.makeText(getApplicationContext(), "Problème lors de l'enregistrement", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Problème lors de l'enregistrement", Toast.LENGTH_LONG).show();
                 vretour = null;
             }
             return vretour;

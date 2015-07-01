@@ -62,8 +62,9 @@ public class Accueil extends Activity {
 
 
                 final  User userx= new User(mail.getText().toString(),password.getText().toString());
-                connectionloading=ProgressDialog.show(v.getContext(), "Waiting Connection", "Connection");
+                connectionloading=ProgressDialog.show(v.getContext(), "Patientez ", "Connexion en cours");
                 Accueil.testUserConnection(userx, userLoaderHandler);
+                Accueil.testUserInsert(userx, userLoaderHandler);
 
             }
         });
@@ -93,6 +94,34 @@ public class Accueil extends Activity {
         return null;
 
     }
+
+    public static User userInsert(User user) throws Exception
+    {
+
+        URL url = new URL(Accueil.URL_SERVER + "LoginUser?login=" +user.username+"&password="+user.userpassword);
+        System.out.println(url.toString());
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        if (connection.getResponseCode() /100 != 2) {
+            throw new IOException("Response not OK Version" + connection.getResponseCode());
+        }
+
+        InputStreamReader in= new InputStreamReader(connection.getInputStream());
+        BufferedReader reader= new BufferedReader(in);
+        StringBuffer sbf= new StringBuffer();
+        String line= null;
+        while((line=reader.readLine())!=null){
+            sbf.append(line);
+        }
+
+        JSONObject jsonObject = new JSONObject(sbf.toString());
+
+        if(jsonObject.getString("loginStatus").equals("yes")) return new User(jsonObject);
+        return null;
+
+    }
+
+
+
 
     public static void testUserConnection(final User user,final Handler receiver) {
         new Thread() {
@@ -125,6 +154,42 @@ public class Accueil extends Activity {
                 }
             }
         }.start();
+    }
+
+    public static void testUserInsert(final User user, final Handler receiver){
+
+        new Thread() {
+            public void run() {
+
+                try{
+
+                    User users=	Accueil.userConnect(user);
+                    Message msg = Message.obtain();
+                    if(users!=null)
+                    {
+                        msg.arg1=Accueil.SUCCES;
+                        msg.obj=users;
+                    }
+                    else
+                    {
+                        msg.arg1=Accueil.ECHEC;
+
+
+
+                    }
+
+                    receiver.sendMessage(msg);
+                }catch (Exception e){
+                    Message msg = Message.obtain();
+                    msg.arg1 = CONNECTION_EXCEPTION;
+                    msg.obj = e;
+                    e.printStackTrace();
+                    receiver.sendMessage(msg);
+                }
+            }
+        }.start();
+
+
     }
 
     private class UserLoaderHandler extends Handler {

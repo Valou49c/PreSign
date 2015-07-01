@@ -1,5 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">PreSign</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="identi">Identification</string>
+    <string name="relcopt">Relevé Compteur</string>
+    <string name="impdonn">Import Données</string>
+    <string name="save">Sauvegarde</string>
+    <string name="title_activity_affiche_liste_client">AfficheListeClient</string>
+    <string name="title_activity_modif_client">ModifClient</string>
+    <string name="id">Identifiant</string>
+    <string name="ident">Identité</string>
+    <string name="tel">Téléphone</string>
+    <string name="addr">Adresse</string>
+    <string name="cpt">Compteur</string>
+    <string name="anc_rel">Ancien relevé</string>
+    <string name="date_rel">A la date du</string>
+    <string name="rel">Relevé</string>
+    <string name="date">Date</string>
+    <string name="situ">Situation</string>
+    <string name="geo">Geoloque</string>
+    <string name="sign">Signature</string>
+    <string name="vue_sign">Vue Signature</string>
+    <string name="valid">Ok</string>
+    <string name="annul">Annuler</string>
+    <string name="title_activity_capture_signature">CaptureSignature</string>
+    <string name="title_activity_affiche_signature">AfficheSignature</string>
+    <string name="title_activity_geoloc">Geoloc</string>
+    <string name="refresh">Actualiser</string>
+    <string name="clear">Clear</string>
+    <string name="back">Retour</string>
+    <string name="title_activity_identification">Identification</string>
+    <string name="testCon">Connexion</string>
+    <string name="title_activity_import_donne">ImportDonne</string>
+    <string name="import_donn">Importer les données</string>
 </resources>
 

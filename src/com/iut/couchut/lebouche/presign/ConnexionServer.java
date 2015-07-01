@@ -3,6 +3,14 @@ package com.iut.couchut.lebouche.presign;
 import android.app.Activity;
 import android.os.AsyncTask;
 import android.widget.Toast;
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -14,6 +22,8 @@ import java.lang.ref.WeakReference;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Valentin on 02/02/2015.
@@ -43,7 +53,7 @@ public class ConnexionServer extends AsyncTask<String, String, Boolean> {
                 //pour exemple on appelle une méthode de l'appelant qui va gérer la fin ok du thread
                 if (vclassactivity.contains("Identification"))
                 {
-                    ((Connexion)mActivity.get()).reponseserveur(sb);
+//                    ((Connexion)mActivity.get()).reponseserveur(sb);
                 }
 
                 if (vclassactivity.contains("ImportDonne"))
@@ -151,4 +161,29 @@ public class ConnexionServer extends AsyncTask<String, String, Boolean> {
         protected void onCancelled () {
         if(mActivity.get() != null) Toast.makeText(mActivity.get(), "Annulation", Toast.LENGTH_SHORT).show();
     }
+
+    public void postData() {
+        // Create a new HttpClient and Post Header
+        HttpClient httpclient = new DefaultHttpClient();
+        HttpPost httppost = new HttpPost("127.0.0.1:8080/customer");
+
+        try {
+            // Add your data
+            List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
+            nameValuePairs.add(new BasicNameValuePair("id", "12345"));
+            nameValuePairs.add(new BasicNameValuePair("stringdata", "Hi"));
+            httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+
+            // Execute HTTP Post Request
+            HttpResponse response = httpclient.execute(httppost);
+
+        } catch (ClientProtocolException e) {
+            // TODO Auto-generated catch block
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+        }
+    }
+
+
+
 }
